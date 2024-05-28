@@ -111,6 +111,7 @@ pve_check() {
 arch_check() {
   if [ "$(dpkg --print-architecture)" != "amd64" ]; then
     echo -e "\n ${CROSS} This script will not work with PiMox! \n"
+    echo -e "\n Visit https://github.com/asylumexp/Proxmox for ARM64 support. \n"
     echo -e "Exiting..."
     sleep 2
     exit
@@ -205,7 +206,7 @@ advanced_settings() {
       if var_version=$(whiptail --backtitle "Proxmox VE Helper Scripts" --title "UBUNTU VERSION" --radiolist "Choose Version" 10 58 3 \
         "20.04" "Focal" OFF \
         "22.04" "Jammy" OFF \
-        "23.10" "Mantic" OFF \
+        "24.04" "Noble" OFF \
         3>&1 1>&2 2>&3); then
         if [ -n "$var_version" ]; then
           echo -e "${DGN}Using $var_os Version: ${BGN}$var_version${CL}"
@@ -595,18 +596,20 @@ EOF
     fi
   else
     if [[ "$APP" == "Channels" || "$APP" == "Emby" || "$APP" == "Frigate" || "$APP" == "Jellyfin" || "$APP" == "Plex" || "$APP" == "Scrypted" || "$APP" == "Tdarr" || "$APP" == "Unmanic" ]]; then
-      if [[ -e "/dev/dri/card0" ]]; then
+      if [[ -e "/dev/dri/renderD128" ]]; then
+        if [[ -e "/dev/dri/card0" ]]; then
           cat <<EOF >>$LXC_CONFIG
 # VAAPI hardware transcoding
 dev0: /dev/dri/card0,gid=44
 dev1: /dev/dri/renderD128,gid=104
 EOF
-      else
+        else
           cat <<EOF >>$LXC_CONFIG
 # VAAPI hardware transcoding
 dev0: /dev/dri/card1,gid=44
 dev1: /dev/dri/renderD128,gid=104
 EOF
+        fi
       fi
     fi
   fi
@@ -618,8 +621,10 @@ EOF
   if [ "$var_os" == "alpine" ]; then
     sleep 3
         pct exec "$CTID" -- /bin/sh -c 'cat <<EOF >/etc/apk/repositories
-http://dl-cdn.alpinelinux.org/alpine/latest-stable/main
-http://dl-cdn.alpinelinux.org/alpine/latest-stable/community
+#http://dl-cdn.alpinelinux.org/alpine/latest-stable/main
+#http://dl-cdn.alpinelinux.org/alpine/latest-stable/community
+http://dl-cdn.alpinelinux.org/alpine/v3.19/main
+http://dl-cdn.alpinelinux.org/alpine/v3.19/community
 EOF'
     pct exec "$CTID" -- ash -c "apk add bash >/dev/null"
   fi

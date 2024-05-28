@@ -10,6 +10,117 @@
 - All LXC instances created using this repository come pre-installed with Midnight Commander, which is a command-line tool (`mc`) that offers a user-friendly file and directory management interface for the terminal environment.
 - 🚨 **The scripts in the repository will no longer provide support for Proxmox VE 7 starting from July 2024 (scripts will not execute on PVE7). Subsequent <a href='https://forum.proxmox.com/threads/proxmox-ve-support-lifecycle.35755/' target='_blank' rel='noopener noreferrer'>Proxmox VE - Support Lifecycle</a>**
 
+## 2024-05-25
+
+### Changed
+
+- **Threadfin LXC**
+  - NEW Script
+
+## 2024-05-23
+
+### Changed
+
+- **BunkerWeb LXC**
+  - NEW Script
+
+## 2024-05-20
+
+### Changed
+
+- **Traefik LXC**
+  - NEW Script
+
+## 2024-05-19
+
+### Changed
+
+- **NetBird**
+  - NEW Script
+- **Tailscale**
+  - Refactor Code
+
+## 2024-05-18
+
+### Changed
+
+- **MongoDB LXC**
+  - NEW Script
+
+## 2024-05-17
+
+### Changed
+
+- **New Website**
+  - We have officially moved to [Helper-Scripts.com](https://helper-scripts.com)
+
+## 2024-05-16
+
+### Changed
+
+- **iVentoy LXC**
+  - NEW Script
+
+## 2024-05-13
+
+### Changed
+
+- **Headscale LXC**
+  - NEW Script
+
+## 2024-05-11
+
+### Changed
+
+- **Caddy LXC**
+  - NEW Script
+
+## 2024-05-09
+
+### Changed
+
+- **Umami LXC**
+  - NEW Script
+
+## 2024-05-08
+
+### Changed
+
+- **Kernel Pin**
+  - NEW Script
+- **Home Assistant Core LXC**
+  - Ubuntu 24.04 ONLY
+
+## 2024-05-07
+
+### Changed
+
+- **Pocketbase LXC**
+  - NEW Script
+
+## 2024-05-05
+
+### Changed
+
+- **Fenrus LXC**
+  - NEW Script
+
+## 2024-05-02
+
+### Changed
+
+- **OpenMediaVault LXC**
+  - Set Debian 12 as default
+  - OpenMediaVault 7 (sandworm)
+
+## 2024-04-30
+
+### Changed
+
+- **Tdarr LXC**
+  - Default settings are now **Unprivileged**
+  - Unprivileged Hardware Acceleration
+
 ## 2024-04-29
 
 ### Changed
